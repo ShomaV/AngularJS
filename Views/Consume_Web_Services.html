@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="/Scripts/Script.js"></script>
+    <script src="/Scripts/Filters.js"></script>
+    <link href="/Styles/Styles.css" rel="stylesheet" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div ng-controller="myController">
+    {{error}}
+    <br/><br />
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="employee in employees">
+            <td>{{employee.Id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.Salary}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

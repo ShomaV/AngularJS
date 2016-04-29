@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <link href="Styles/Styles.css" rel="stylesheet" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div ng-controller="myController">
+    <input type="checkbox" ng-model="hideSalary"/> Hide Salary
+    <input type="checkbox" ng-model="hideSalaryShow" /> Hide Salary using ng-show
+    <br/><br />
+    <table>
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Date Of Birth</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th ng-hide="hideSalary">Salary (number)</th>
+            <th ng-show="hideSalary">Salary (number)</th>
+            <th ng-show="!hideSalaryShow">Salary (currency)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="employee in employees |limitTo:rowLimit">
+            <td>{{employee.firstName | uppercase}}</td>
+            <td>{{employee.dob | date:"dd/MM/yyyy"}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.gender | lowercase}}</td>
+            <td ng-hide="hideSalary">{{employee.salary | number : 2}}</td>
+            <td ng-show="hideSalary">####</td>
+            <td ng-show="!hideSalaryShow">{{employee.salary | currency:"£":1}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

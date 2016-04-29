@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <script src="Scripts/Filters.js"></script>
+    <link href="Styles/Styles.css" rel="stylesheet" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div ng-controller="myController">
+    Select View:
+    <select ng-model="employeeView">
+        <option value="EmployeeTable.html">Table</option>
+        <option value="EmployeeList.html">List</option>
+    </select>
+    <br/><br/>
+    <h1>Example ng-include</h1>
+    <div ng-include="'EmployeeTable.html'"> </div>
+    <br/><br/>
+    <h1>Example ng-include as a property</h1>
+    <div ng-include="employeeView"> </div>
+    <br/><br/>
+</div>
+</body>
+</html>

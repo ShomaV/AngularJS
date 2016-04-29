@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="/Scripts/Script.js"></script>
+    <script src="/Scripts/Filters.js"></script>
+    <link href="/Styles/Styles.css" rel="stylesheet" />
+    <script src="../Scripts/stringService.js"></script>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div ng-controller="myController">
+        <!--<button id="top" ng-click="scrollTo('bottom')">Go to bottom of the page</button>
+        <div>
+            What is AngularJS?
+            It is a javascript framework that help us build web applications (single page and line of business applications).
+            Developed by Google.
+            Open source project.
+            https://www.madewithangular.com/#/ has a list of applications built on angular.
+
+            Benefits?
+            Dependency Injection
+            Two-way data binding - Keeps model and view in-sync. ie., any change to the view updates the model and any change to the model updates the view. Binding expression updates the view when the model changes {{message}}. In-order to update the Model when the view changes we use ng-model attribute. This directive can be used with input,select & text area html elements.
+            Testing - both unit testing and end-to-end testing
+            MVC
+            Controlling the behaviour of DOM elements using Directives, Flexibility provided by Angular Filters.
+
+            A simple example
+            To build any Angular applications, we only need angular.js script file
+            Add a reference to the attribute ng-app in the html - It is an Directive
+            ng- Angular
+            It is the starting point of AngularJS application.
+            When ng-app directive is found in the html then, angular does an auto-boostrap to start managing that section of the page.
+            What is a module in AngularJS
+            A module is a container for different parts of your application ie., controllers, services,directives,filters etc.
+            Type of a main() in other types of applications
+            var myApp = angular.module("myModule",[])
+
+            Controller
+            Controller is a javascript function. Its job is to build a model for view to display.
+            var myControoler = function($scope){
+            $scope.message = "ANGULARJS Tutorials"
+            }
+            $scope- angular object- attach the model to this scope object.
+
+            Method chaining
+            Allows creating a module,controller and register the controller with the module, all in one line.
+
+            ng-src
+            Using a binding expression with the image src attribute results in  a 404 error.
+
+            ng-repeat
+            - Similar for for-each loop in C#
+
+
+            Finding the index of an item in the collection
+            Use the $index property
+            Use $parent.index or ng-init="parentIndex=$index" to find the index of the parent.
+            ng-init
+            Initialize a variable
+            Allows to evaluate an expression in the current scope.
+            In a real world application you should use a controller instead of ng-init to initialize values on a scope.
+            ng-init should only be used for aliasing special properties of ng-repeat directive.
+            Ex: ng-init="parentIndex=$index"
+
+
+            Built-in formatters are lowercase, uppercase,number (formats a number as text. Includes comma as thousands separator and the number of decimal places can be specified.),currency,date.
+            limitTofilter : Can be used to limit the number of rows or characters in a string. Ex: {{expression|limitTo:limit:begin}}
+            Sorting in AngularJS
+            To sort the data use orderByfilter
+            Syntax: {{orderBy_expression | orderBy:expression:reverse}}
+            Ex: ng-repeat = "employee in employees |orderBy:'salary':false"
+            To sort data in ascending order set reverse parameter to false, for descending set it to true
+            Also ng-repeat = "employee in employees |orderBy:'+salary'" - ascending order
+            SearchFilter
+
+
+
+            $http Service
+            Is used to make HTTP requests to remote server.
+            Is a function that has a single input parameter ie., configuration object.
+            Ex: $http({method:'GET', url:'EmpployeeService.asmx/getAllEmployees'})
+            This returns a promise object which means that the data is returned asynchronously and will not be available immediately hence we use the then()
+            Use the $log service to log the response object to the console.
+            Services in angular are $http service or $log service.
+            Services encapsulate reusable logic that does not belong anywhere else (ie., Directives, Filters, Views,Models & Controllers)
+            $anchorscroll service
+            It is used to jump to a specified element on the page.
+            ﻿
+        </div>
+        <button id="buttom" ng-click="scrollTo('top')">Go to the top of the page</button>-->
+
+        <span ng-repeat="country in serviceCountries">
+            <button ng-click="scrollTo(country.Name)">{{country.Name}}</button>
+        </span>
+            <br /><br />
+            <div>
+                <fieldset ng-repeat="country in serviceCountries" id="{{country.Name}}">
+                    <legend>{{country.Name}}</legend>
+                    <ul>
+                        <li ng-repeat="city in country.Cities">
+                            {{city.Name}}
+                        </li>
+                    </ul>
+                </fieldset>
+            </div>
+        
+    </div>
+</body>
+</html>

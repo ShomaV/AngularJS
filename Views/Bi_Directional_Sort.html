@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <link href="Styles/Styles.css" rel="stylesheet" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div ng-controller="myController">       
+    <table>
+        <thead>
+        <tr>
+            <th ng-click="sortData('firstName')">
+                First Name
+                <div ng-class="getSortClass('firstName')"></div>
+            </th>
+            <th ng-click="sortData('dob')">
+                Date Of Birth
+                <div ng-class="getSortClass('dob')"></div>
+            </th>
+            <th ng-click="sortData('lastName')">
+                Last Name
+                <div ng-class="getSortClass('lastName')"></div>
+            </th>
+            <th ng-click="sortData('gender')">
+                Gender
+                <div ng-class="getSortClass('gender')"></div>
+            </th>
+            <th ng-click="sortData('salary')">
+                Salary (number)
+                <div ng-class="getSortClass('salary')"></div>
+            </th>
+            <th ng-click="sortData('salary')">
+                Salary (currency) <div ng-class="getSortClass('salary')"></div>
+            </th>            
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="employee in employees|orderBy :sortColumn:reverseSort">
+            <td>{{employee.firstName | uppercase}}</td>
+            <td>{{employee.dob | date:"dd/MM/yyyy"}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.gender | lowercase}}</td>
+            <td>{{employee.salary | number : 2}}</td>
+            <td>{{employee.salary | currency:"£":1}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
